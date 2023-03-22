@@ -19,13 +19,16 @@ export const getAll = async(req, res) => {
         const data = await Product.find();
         return res.status(201).json(data)
     } catch (error) {
-        
+        return res.status(400).json({
+            message: error,
+        })
     }
 }
 
 export const get = async(req, res) => {
     try {
-        const data = await Product.findByid(req.prams.id);
+        const data = await Product.findByid(req.params.id);
+        return res.status(201).json(data)
     } catch (error) {
         
     }
